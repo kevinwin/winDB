@@ -7,6 +7,6 @@
     },
     "devDependencies": {},
     "author": "Kevin Win",
-    { "engines" : { "node" : ">=8.9.4" } },
+    "engines" : { "node" : ">=8.9.4" },
     "license": "ISC"
 }
