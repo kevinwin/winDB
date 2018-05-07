@@ -1,12 +1,22 @@
 {
-    "name": "winDB query plan executor",
+    "name": "winDB-query-executor",
     "version": "1.0.0",
     "description": "",
     "dependencies": {
         "lodash.isequal": "^4.5.0"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "jest": "^22.4.3"
+    },
+    "scripts": {
+        "test": "jest"
+    },
     "author": "Kevin Win",
-    "engines" : { "node" : ">=8.9.4" },
+    "engines": {
+        "node": ">=8.9.4"
+    },
+    "jest": {
+        "testEnvironment": "node"
+    },
     "license": "ISC"
 }
