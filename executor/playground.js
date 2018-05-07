@@ -50,22 +50,5 @@ const operators = createTree([
 
 const root = new Root(operators);
 
-run(root);
-
-function run(root, perform=console.log) {
-    let count = 0;
-    let done;
-
-    while (!done) {
-        const next = root.next();
-        done = next.done;
-        value = next.value;
-        if (!done && count++ < root.limit) {
-            perform(value);
-        } else if (done) {
-            value && perform(value) // used in aggregation
-        }
-    }
-}
-
+root.next();
 
