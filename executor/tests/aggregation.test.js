@@ -5,8 +5,7 @@ const Scan = require('../Scan');
 const Select = require('../Select');
 const Projection = require('../Projection');
 const Count = require('../Count');
-const Sum = require('../Sum');
-const Average = require('../Average');
+const Aggregation = require('../Aggregation');
 
 const dummyData = require('./dummyData');
 const key = 'rating';
@@ -71,7 +70,7 @@ describe('Aggregation nodes', () => {
             const results = []
             projection = new Projection(key);
             scan = new Scan(dummyData);
-            sum = new Sum(key);
+            sum = new Aggregation(key, 'sum');
 
             const operators = createTree([
                 sum, [
@@ -98,7 +97,7 @@ describe('Aggregation nodes', () => {
                 scan = new Scan(dummyData);
                 select = new Select(predicate);
                 projection = new Projection(key);
-                sum = new Sum(key);
+                sum = new Aggregation(key, 'sum');
 
                 const operators = createTree([
                     sum, [
@@ -131,7 +130,7 @@ describe('Aggregation nodes', () => {
             const results = [];
             scan = new Scan(dummyData);
             projection = new Projection(key);
-            average = new Average(key);
+            average = new Aggregation(key, 'average');
 
             const operators = createTree([
                 average, [
@@ -160,7 +159,7 @@ describe('Aggregation nodes', () => {
                 scan = new Scan(dummyData);
                 select = new Select(predicate);
                 projection = new Projection(key);
-                average = new Average(key);
+                average = new Aggregation(key, 'average');
 
                 const operators = createTree([
                     average, [

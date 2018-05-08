@@ -1,9 +1,8 @@
-const Average = require('./Average');
 const Scan = require('./Scan');
 const Sort = require('./Sort');
 const Distinct = require('./Distinct');
 const Select = require('./Select');
-const Sum = require('./Sum');
+const Aggregation = require('./Aggregation');
 const Projection = require('./Projection');
 const Count = require('./Count');
 const Root = require('./Root');
@@ -29,8 +28,8 @@ const key = 'points';
 
 const scan = new Scan(data);
 const sort = new Sort(key, true);
-const sum = new Sum(key)
-const average = new Average(key);
+const sum = new Aggregation(key, 'sum')
+const average = new Aggregation(key, 'average');
 const select = new Select((item) => item && item.id < 3);
 const projection = new Projection('*');
 const count = new Count();
