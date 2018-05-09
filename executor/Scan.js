@@ -14,6 +14,10 @@ class Scan extends Iterator {
     close() {
         // clean up
     }
+
+    reset() {
+        this._recordsIterator = this._records[Symbol.iterator]();
+    }
 }
 
 module.exports = Scan;
