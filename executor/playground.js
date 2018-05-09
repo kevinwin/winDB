@@ -1,8 +1,10 @@
 const Scan = require('./Scan');
+
 const Sort = require('./Sort');
 const Distinct = require('./Distinct');
 const Select = require('./Select');
 const Aggregation = require('./Aggregation');
+const NestedLoopJoin = require('./NestedLoopJoin');
 const Projection = require('./Projection');
 const Count = require('./Count');
 const Root = require('./Root');
@@ -47,7 +49,18 @@ const operators = createTree([
     ]
 ])
 
-const root = new Root(operators);
+const nestedLoopJoin = new NestedLoopJoin()
+const rScan = new Scan(data);
+const sScan = new Scan(data);
+
+const operators2 = createTree([
+    nestedLoopJoin, 
+        [rScan],
+        [sScan]
+    ])
+
+const root = new Root(operators2);
 
 root.next();
+
 
